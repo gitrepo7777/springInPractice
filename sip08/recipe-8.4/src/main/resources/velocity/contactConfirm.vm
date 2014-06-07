@@ -1,0 +1,15 @@
+<b>[This e-mail was automatically generated. Please do not reply.]</b>
+
+Thank you for contacting Example.com. This is an auto-generated response to let
+you know that we received your message. We typically respond within 24 hours.
+
+Thanks,
+Example.com
+
+<b>Your message:</b>
+
+Name: ${userMessage.name}
+E-mail: ${userMessage.email}
+Date: ${userMessage.dateCreated}
+
+${userMessage.text}

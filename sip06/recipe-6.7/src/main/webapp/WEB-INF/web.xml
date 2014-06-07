@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:/spring/beans-data.xml
+			classpath:/spring/beans-service.xml
+			classpath:/spring/beans-security.xml
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>appName</param-name>
+		<param-value>SiP University</param-value>
+	</context-param>
+	<context-param>
+		<param-name>recipe</param-name>
+		<param-value>6.7</param-value>
+	</context-param>
+	<context-param>
+		<param-name>aboutThisRecipe</param-name>
+		<param-value><![CDATA[
+			<p>In recipe 6.7 we learn how to secure user passwords at rest in the database using hashing and salt.</p>
+			<p>Any existing accounts (including juan, elvira and any accounts you created in recipe 6.6) will no longer
+			work, because the passwords aren't hashed or salted. Instead, create new accounts using the registration
+			form and inspect the passwords in the database.</p>
+		]]></param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	
+	<!-- By putting the security filter first, the Sitemesh skin will see security info (e.g. in the subhead). -->
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<servlet>
+		<servlet-name>spring</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:/spring/beans-web.xml</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>spring</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+</web-app>

@@ -1,0 +1,46 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ include file="/WEB-INF/jsp/urls.jspf" %>
+
+<%-- This is "myAccount" rather than "account" to avoid a conflict when looking at someone else's account page --%>
+<%-- We handle the null principal case because Sitemesh may have intercepted a page that Spring Security generates
+     (e.g. the default login form), in which case Spring Security never gets the chance to put the authentication
+     object on the request. --%>
+<security:authentication var="myAccount" property="principal" />
+
+<div id="subhd" class="yui-g">
+	<div class="yui-u first">
+		<div id="topNav">
+			<ul>
+				<li><a href="${homeUrl}">Home</a></li>
+				<security:authorize access="hasRole('PERM_READ_FORUMS')">
+					<li><a href="${forumsUrl}">Forums</a></li>
+				</security:authorize>
+				<security:authorize access="isAuthenticated()">
+					<c:url var="myAccountUrl" value="${accountsPath}/${myAccount.username}.html" />
+					<li><a href="${myAccountUrl}">My Account</a></li>
+				</security:authorize>
+				<security:authorize access="hasRole('ROLE_ADMIN')">
+					<li><a href="${adminUrl}">Admin</a></li>
+				</security:authorize>
+			</ul>
+		</div>
+	</div>
+	<div class="yui-u">
+		<div id="sessionInfo">
+			<security:authorize access="isAnonymous()">
+				Hi, guest
+			</security:authorize>
+			<security:authorize access="isAuthenticated()">
+				Hi, <c:out value="${myAccount.fullName}" />
+			</security:authorize>
+			|
+			<security:authorize access="isAnonymous()">
+				<a href="${loginUrl}">Log in</a>
+			</security:authorize>
+			<security:authorize access="isAuthenticated()">
+				<a href="${logoutUrl}">Log out</a>
+			</security:authorize>
+		</div>
+	</div>
+</div>

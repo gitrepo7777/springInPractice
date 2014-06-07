@@ -1,0 +1,14 @@
+========================================================================================================================
+README - Spring in Practice Recipe 8.1
+
+Copyright (c) 2013 Manning Publications Co.
+
+Willie Wheeler (willie.wheeler@gmail.com)
+
+Book: http://manning.com/wheeler/
+Blog: http://springinpractice.com/
+Code: https://github.com/springinpractice
+========================================================================================================================
+
+Recipe 8.1 shows how to create a simple user feedback form. This is technically similar to what we did in chapter 4, but
+here we show how to pre- and post-populate the form bean.

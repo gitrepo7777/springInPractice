@@ -1,0 +1,19 @@
+========================================================================================================================
+README - Spring in Practice Recipe 6.7
+
+Copyright (c) 2013 Manning Publications Co.
+
+Willie Wheeler (willie.wheeler@gmail.com)
+
+Book: http://manning.com/wheeler/
+Blog: http://springinpractice.com/
+Code: https://github.com/springinpractice
+========================================================================================================================
+
+This chapter explores authentication using Spring Security 3.
+
+In recipe 6.7 we learn how to secure user passwords at rest in the database using hashing and salt.
+
+Any existing accounts (including juan, elvira and any accounts you created in recipe 6.6) will no longer work, because
+the passwords aren't hashed or salted. Instead, create new accounts using the registration form and inspect the
+passwords in the database.

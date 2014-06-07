@@ -1,0 +1,13 @@
+========================================================================================================================
+README - Spring in Practice Recipe 8.2
+
+Copyright (c) 2013 Manning Publications Co.
+
+Willie Wheeler (willie.wheeler@gmail.com)
+
+Book: http://manning.com/wheeler/
+Blog: http://springinpractice.com/
+Code: https://github.com/springinpractice
+========================================================================================================================
+
+In recipe 8.2 we add support for confirmation e-mails and admin notification e-mails to our contact service.

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
+<spring:message var="postCommentLabel" code="commentForm.label.postComment" />
+
+<div id="postComment">
+	<form:form modelAttribute="comment" action="${postCommentUrl}">
+		<h2 class="commentAdd icon" style="margin-top:0">Post a comment</h2>
+		
+		<form:errors>
+			<div class="alert warning">
+				<form:errors />
+			</div>
+		</form:errors>
+		
+		<div class="grid">
+			<div class="gridRow">
+				<div class="yui-gf">
+					<div class="yui-u first">
+						<div class="formLabel">
+							<spring:message code="commentForm.label.yourName" />
+						</div>
+					</div>
+					<div class="yui-u">
+						<div>
+							<form:input path="name" cssClass="medium" cssErrorClass="medium error" />
+						</div>
+						<form:errors path="name">
+							<div class="formFieldError">
+								<form:errors path="name" />
+							</div>
+						</form:errors>
+					</div>
+				</div>
+			</div>
+			<div class="gridRow">
+				<div class="yui-gf">
+					<div class="yui-u first">
+						<div class="formLabel">
+							<spring:message code="commentForm.label.yourEmail" />
+							<spring:message code="commentForm.label.wontBeDisplayed" />
+						</div>
+					</div>
+					<div class="yui-u">
+						<div>
+							<form:input path="email" cssClass="medium" cssErrorClass="medium error" />
+						</div>
+						<div class="formFieldError">
+							<form:errors path="email" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="gridRow">
+				<div class="yui-gf">
+					<div class="yui-u first">
+						<div class="formLabel">
+							<spring:message code="commentForm.label.yourWebSite" />
+							<spring:message code="commentForm.label.optional" />
+						</div>
+					</div>
+					<div class="yui-u">
+						<div>
+							<form:input path="web" cssClass="medium" cssErrorClass="medium error" />
+						</div>
+						<div class="formFieldError">
+							<form:errors path="web" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="gridRow">
+				<div class="yui-gf">
+					<div class="yui-u first">
+						<div class="formLabel">
+							<spring:message code="commentForm.label.yourComment" />:
+						</div>
+					</div>
+					<div class="yui-u">
+						<form:textarea path="markdownText" cssClass="resizable" cssErrorClass="resizable error" />
+						<form:errors path="markdownText">
+							<div class="formFieldError">
+								<form:errors path="markdownText" />
+							</div>
+						</form:errors>
+					</div>
+				</div>
+			</div>
+			<div class="gridRow">
+				<div class="yui-gf">
+					<div class="yui-u first"></div>
+					<div class="yui-u">
+						<input type="submit" value="${postCommentLabel}" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</form:form>
+</div>

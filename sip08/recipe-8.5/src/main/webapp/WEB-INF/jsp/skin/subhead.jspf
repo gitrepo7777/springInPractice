@@ -1,0 +1,17 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:url var="homeUrl" value="/" />
+<c:url var="mailingListUrl" value="/mailinglist/subscribe.html" />
+<c:url var="contactUrl" value="/contact/new.html" />
+<c:url var="rssUrl" value="/news.rss" />
+
+<div id="subhd">
+	<div id="topNav">
+		<ul>
+			<li><a href="${homeUrl}">Home</a></li>
+			<li><a href="${mailingListUrl}">Mailing List</a></li>
+			<li><a href="${contactUrl}">Contact Us</a></li>
+			<li><a href="${rssUrl}">RSS</a></li>
+		</ul>
+	</div>
+</div>

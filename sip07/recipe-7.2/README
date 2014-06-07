@@ -1,0 +1,13 @@
+========================================================================================================================
+README - Spring in Practice Recipe 7.2
+
+Copyright (c) 2013 Manning Publications Co.
+
+Willie Wheeler (willie.wheeler@gmail.com)
+
+Book: http://manning.com/wheeler/
+Blog: http://springinpractice.com/
+Code: https://github.com/springinpractice
+========================================================================================================================
+
+In recipe 7.2 we display page content based on authentication level and role.

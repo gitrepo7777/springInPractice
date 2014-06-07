@@ -1,0 +1,26 @@
+<html>
+<body>
+
+<p style="margin:15px 0;"><b>[This e-mail was automatically generated. Please do not reply.]</b></p>
+
+<p style="margin:15px 0;">Hello!</p>
+
+<p style="margin:15px 0;">To confirm your unsubscription from the Example.com
+mailing list, please click the following link within 24 hours of your initial unsubscription
+request.</p>
+
+<p style="margin:15px 0 15px 30px;"><a href="${url}">${url}</a></p>
+
+<p style="margin:15px 0;">If you can't click the link above, please paste the following URL into your
+browser:</p>
+
+<p style="margin:15px 0 15px 30px;">${url}</p>
+
+<p style="margin:15px 0;">(If you did not unsubscribe from the Example.com mailing list, kindly
+ignore this message.)</p>
+
+<p style="margin:15px 0;">Thanks,<br />
+Example.com</p>
+
+</body>
+</html>

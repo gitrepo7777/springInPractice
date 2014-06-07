@@ -1,0 +1,14 @@
+========================================================================================================================
+README - Spring in Practice Recipe 8.3
+
+Copyright (c) 2013 Manning Publications Co.
+
+Willie Wheeler (willie.wheeler@gmail.com)
+
+Book: http://manning.com/wheeler/
+Blog: http://springinpractice.com/
+Code: https://github.com/springinpractice
+========================================================================================================================
+
+Recipe 8.3 uses the Spring TaskExecutor abstraction to speed up the process of submitting a user message by making it
+asynchronous.

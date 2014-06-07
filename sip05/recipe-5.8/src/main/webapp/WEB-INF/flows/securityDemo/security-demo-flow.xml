@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Source project: sip05, branch: 08 (Maven Project) -->
+
+<flow xmlns="http://www.springframework.org/schema/webflow"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/webflow
+	http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+	start-state="unsecured">	
+	   
+  <view-state id="secured">
+    <secured attributes="ROLE_USER"/>
+    <transition on="next" to="end" />
+  </view-state>
+  
+  <view-state id="unsecured">
+    <secured attributes="ROLE_ANONYMOUS, ROLE_USER" match="any"/>
+    <transition on="next" to="secured" />
+  </view-state>  
+   	    
+  <end-state id="end" view="externalRedirect:contextRelative:/registration"/>	 
+</flow>

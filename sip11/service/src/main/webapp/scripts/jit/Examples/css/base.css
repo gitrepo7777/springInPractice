@@ -1,0 +1,10 @@
+#infovis {
+	width: 680px;
+	height: 600px;
+	overflow: hidden;
+	background-color: #1a1a1a;
+}
+
+.text {
+    margin: 7px;
+}

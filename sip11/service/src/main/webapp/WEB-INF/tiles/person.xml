@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+		"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+	<definition name="personList" extends="listPageTemplate">
+		<put-attribute name="content" value="/WEB-INF/jsp/person/personList.jsp" cascade="true" />
+	</definition>
+	<definition name="personDetails" extends="detailsPageTemplate">
+		<put-attribute name="content" value="/WEB-INF/jsp/person/personDetails.jsp" cascade="true" />
+	</definition>
+	<definition name="personScmFollowers" extends="detailsPageTemplate">
+		<put-attribute name="content" value="/WEB-INF/jsp/person/details/scm/personScmFollowers.jsp" cascade="true" />
+	</definition>
+	<definition name="personScmFollowing" extends="detailsPageTemplate">
+		<put-attribute name="content" value="/WEB-INF/jsp/person/details/scm/personScmFollowing.jsp" cascade="true" />
+	</definition>
+	<definition name="personForm" extends="titledPageTemplate">
+		<put-attribute name="content" value="/WEB-INF/jsp/person/personForm.jsp" cascade="true" />
+	</definition>
+	<definition name="createPersonForm" extends="personForm" />
+	<definition name="editPersonForm" extends="personForm" />
+</tiles-definitions>

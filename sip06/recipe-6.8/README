@@ -1,0 +1,15 @@
+========================================================================================================================
+README - Spring in Practice Recipe 6.8
+
+Copyright (c) 2013 Manning Publications Co.
+
+Willie Wheeler (willie.wheeler@gmail.com)
+
+Book: http://manning.com/wheeler/
+Blog: http://springinpractice.com/
+Code: https://github.com/springinpractice
+========================================================================================================================
+
+This chapter explores authentication using Spring Security 3.
+
+Recipe 6.8 auto-authenticates a user immediately following a successful registration.

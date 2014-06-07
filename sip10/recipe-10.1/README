@@ -1,0 +1,14 @@
+========================================================================================================================
+README - Spring in Practice Recipe 10.1
+
+Copyright (c) 2013 Manning Publications Co.
+
+Willie Wheeler (willie.wheeler@gmail.com)
+
+Book: http://manning.com/wheeler/
+Blog: http://springinpractice.com/
+Code: https://github.com/springinpractice
+========================================================================================================================
+
+This recipe shows how to configure Maven for integration testing. This generally involves setting up plugins in the
+Maven POM (pom.xml). There isn't anything to run yet.

@@ -1,0 +1,30 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ include file="/WEB-INF/jsp/urls.jspf" %>
+
+<%-- This is "myAccount" rather than "account" to avoid a conflict when looking at someone else's account page --%>
+<%-- We handle the null principal case because Sitemesh may have intercepted a page that Spring Security generates
+     (e.g. the default login form), in which case Spring Security never gets the chance to put the authentication
+     object on the request. --%>
+<security:authentication var="myAccount" property="principal" />
+
+<div id="subhd" class="yui-g">
+	<div class="yui-u first">
+		<div id="topNav">
+			<ul>
+				<li><a href="${homeUrl}">Home</a></li>
+				<li><a href="${forumsUrl}">Forums</a></li>
+				<li><a href="${adminUrl}">Admin</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="yui-u">
+		<div id="sessionInfo">
+			<c:if test="${myAccount != null}">
+				Hi, <c:out value="${myAccount}" /> |
+			</c:if>
+			<a href="${loginUrl}">Log in</a> |
+			<a href="${logoutUrl}">Log out</a>
+		</div>
+	</div>
+</div>

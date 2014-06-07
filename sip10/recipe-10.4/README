@@ -1,0 +1,30 @@
+========================================================================================================================
+README - Spring in Practice Recipe 10.4
+
+Copyright (c) 2013 Manning Publications Co.
+
+Willie Wheeler (willie.wheeler@gmail.com)
+
+Book: http://manning.com/wheeler/
+Blog: http://springinpractice.com/
+Code: https://github.com/springinpractice
+========================================================================================================================
+
+Recipe 10.4 shows how to create an integration test that verifies performance.
+
+To run this recipe:
+
+1) Create a database called sip10_it, if you haven't already done so. You don't need to do anything other than create
+the database as the integration test script will create the schema and test data.
+
+2) From the top-level directory, type
+
+    mvn -e verify
+
+to run the integration tests *except* for the two performance tests.
+
+3) From the same directory, type
+
+    mvn -e -Denvironment=ci verify
+
+to run all integration tests, including the two performance tests.

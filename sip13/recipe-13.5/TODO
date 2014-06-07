@@ -1,0 +1,17 @@
+TODOs for this chapter as there are some things I haven't cleaned up yet.
+
+- Fix validation error message that results when submitting an empty ticket from the portal. Right now it says
+
+Failed to convert property value of type java.lang.String to required type org.springframework.hateoas.Link for property
+category; nested exception is org.springframework.core.convert.ConversionFailedException: Failed to convert from type
+java.lang.String to type @javax.validation.constraints.NotNull org.springframework.hateoas.Link for value '; nested
+exception is java.lang.IllegalArgumentException: Href must not be null or empty!
+
+* Add findByKey() to the TicketCategoryRepository, going all the way back to recipe 13.1
+
+* Update 13.3 to get rid of the REST calls that the help desk app makes to the portal. Get rid of both the client and
+  the service. This also means getting rid of the Spring HATEOAS resources and replacing them with our CDM DTOs. Remove
+  the dependencies from the POM, remove the REST annotations from the Spring Data JPA repos, etc.
+
+* In recipe 13.3, replace the hardcoded Rabbit guest/guest credentials with property placeholder creds. Do this for
+  both help desk and portal. Merge this forward.

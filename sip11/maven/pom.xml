@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.springinpractice</groupId>
+		<artifactId>com.springinpractice.ch11</artifactId>
+		<version>1.0-RELEASE</version>
+		<relativePath>..</relativePath>
+	</parent>
+	
+	<!-- This follows the maven artifact ID convention -->
+	<artifactId>zkybase-maven-plugin</artifactId>
+	
+	<packaging>maven-plugin</packaging>
+	<name>Zkybase Maven Plugins</name>
+	
+	<dependencies>
+	
+		<!-- Zkybase -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>com.springinpractice.ch11.client</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>com.springinpractice.ch11.domain</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<!-- Maven -->
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-plugin-api</artifactId>
+			<version>2.0</version>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.springinpractice.ch11</groupId>
+				<artifactId>zkybase-maven-plugin</artifactId>
+				<version>1.0-RELEASE</version>
+				<configuration>
+					<skybaseUrl>http://localhost:8080/</skybaseUrl>
+					<module>
+						<groupId>${project.groupId}</groupId>
+						<moduleId>${project.artifactId}</moduleId>
+					</module>
+					<version>${project.version}</version>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>deploy</phase>
+						<goals>
+							<goal>package</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<!--
+	<distributionManagement>
+		<repository>
+			<id>dummy</id>
+			<name>Dummy Artifact Repository</name>
+			<url>http://example.com/dummy</url>
+			<uniqueVersion>false</uniqueVersion>
+		</repository>
+	</distributionManagement>
+	-->
+</project>

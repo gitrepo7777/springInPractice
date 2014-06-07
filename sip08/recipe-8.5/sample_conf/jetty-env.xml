@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+<Configure class="org.mortbay.jetty.webapp.WebAppContext">
+	<New id="sip08DS" class="org.mortbay.jetty.plus.naming.Resource">
+		<Arg></Arg>
+		<Arg>jdbc/Sip08DS</Arg>
+		<Arg>
+			<New class="org.apache.commons.dbcp.BasicDataSource">
+				<Set name="driverClassName">com.mysql.jdbc.Driver</Set>
+				<Set name="url">jdbc:mysql://localhost:3306/sip08?autoReconnect=true</Set>
+				<Set name="username">username</Set>
+				<Set name="password">password</Set>
+			</New>
+		</Arg>
+	</New>
+	<New id="repository" class="org.mortbay.jetty.plus.naming.Resource">
+		<Arg>mail/Session</Arg>
+		<Arg>
+			<New class="org.mortbay.naming.factories.MailSessionReference">
+				<Set name="user">username</Set>
+				<Set name="password">password</Set>
+				<Set name="properties">
+					<New class="java.util.Properties">
+						<Put name="mail.user">username</Put>
+						<Put name="mail.password">password</Put>
+						<Put name="mail.transport.protocol">smtp</Put>
+						<Put name="mail.smtp.host">smtp.example.com</Put>
+						<Put name="mail.smtp.port">25</Put>
+						<Put name="mail.smtp.auth">true</Put>
+						<Put name="mail.smtp.starttls.enable">true</Put>
+						<Put name="mail.debug">true</Put>
+					</New>
+				</Set>
+			</New>
+		</Arg>
+	</New>
+</Configure>

@@ -1,0 +1,54 @@
+<flow xmlns="http://www.springframework.org/schema/webflow"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/webflow
+	http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+	start-state="findExistingPlayer">	
+	
+  <var name="accountForm" class="com.springinpractice.ch05.form.AccountForm"/>
+  	
+  <subflow-state id="findExistingPlayer" subflow="findExistingPlayer">	
+    <transition on="endState" to="newAccountForm"/>
+    <transition on="newSearchEndState" to="findExistingPlayer"/>  
+    <transition on="existingAccountFoundEndState" to="sendToLoginEndState">
+      <set name="flowScope.loginUsername" 
+      	value="currentEvent.attributes.loginUsername"/>
+    </transition>      
+  </subflow-state>
+  
+  <view-state id="newAccountForm" model="accountForm">   
+    <binder>
+      <binding property="guardian.firstName" />
+      <binding property="guardian.lastName" />
+      <binding property="guardian.address1" />
+      <binding property="guardian.address2" />
+      <binding property="guardian.city" />
+      <binding property="guardian.state" />
+      <binding property="guardian.zip" />
+      <binding property="guardian.homePhone" />
+      <binding property="guardian.email" />
+      <binding property="confirmEmail" />
+      <binding property="guardian.password" />
+      <binding property="confirmPassword" />
+      <binding property="child.firstName" />    
+      <binding property="child.lastName" />
+      <binding property="child.birthDate" />
+    </binder>     
+    <transition on="next" to="confirmNewAccount"/>      
+  </view-state> 
+  	
+  <view-state id="confirmNewAccount">
+    <transition on="back" to="newAccountForm" />
+    <transition on="next" to="processNewAccount" />
+  </view-state>
+  
+  <action-state id="processNewAccount">
+    <set name="flowScope.loginUsername"
+      value="playerService.createNewAccount(accountForm)"/>
+	<transition on="success" to="sendToLoginEndState"/>
+  </action-state>  
+		
+  <end-state id="sendToLoginEndState" 
+    view="externalRedirect:contextRelative:/login.jsp?username=#{flowScope.loginUsername}"/>
+	 
+</flow>

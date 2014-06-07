@@ -1,0 +1,19 @@
+========================================================================================================================
+README - Spring in Practice Recipe 10.6
+
+Copyright (c) 2013 Manning Publications Co.
+
+Willie Wheeler (willie.wheeler@gmail.com)
+
+Book: http://manning.com/wheeler/
+Blog: http://springinpractice.com/
+Code: https://github.com/springinpractice
+========================================================================================================================
+
+Recipe 10.6 shows how to run integration tests against an embedded (in-memory) database.
+
+To run this recipe, type
+
+    mvn -e verify
+
+from the top-level directory. You don't need to create a database explicitly.
